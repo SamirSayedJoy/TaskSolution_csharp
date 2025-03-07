@@ -1,0 +1,116 @@
+using System;
+
+using System.Linq;
+
+using System.Collections.Generic;
+
+
+
+namespace Practise;
+
+
+
+public class program
+{
+      public static void Main()
+      {
+
+
+            string input = "-- -.--   -. .- -- .   .. ...   .--- --- -.--";
+
+            morseCodeDecoder(input);
+
+
+
+
+
+
+
+      }
+
+
+
+      public static void morseCodeDecoder(string input)
+      {
+
+
+
+            if (input.Contains("   ")) input = input.Replace("   ", " * ");
+
+            string[] split_input = input.Split(' ');
+
+
+            char[] alphabets = new char[split_input.Length];
+
+
+            for (int i = 0; i < split_input.Length; i++)
+            {
+                  switch (split_input[i])
+                  {
+                        case ".-": alphabets[i] = 'A'; break;
+                        case "-...": alphabets[i] = 'B'; break;
+                        case "-.-.": alphabets[i] = 'C'; break;
+                        case "-..": alphabets[i] = 'D'; break;
+                        case ".": alphabets[i] = 'E'; break;
+                        case "..-.": alphabets[i] = 'F'; break;
+                        case "--.": alphabets[i] = 'G'; break;
+                        case "....": alphabets[i] = 'H'; break;
+                        case "..": alphabets[i] = 'I'; break;
+                        case ".---": alphabets[i] = 'J'; break;
+                        case "-.-": alphabets[i] = 'K'; break;
+                        case ".-..": alphabets[i] = 'L'; break;
+                        case "--": alphabets[i] = 'M'; break;
+                        case "-.": alphabets[i] = 'N'; break;
+                        case "---": alphabets[i] = 'O'; break;
+                        case ".--.": alphabets[i] = 'P'; break;
+                        case "--.-": alphabets[i] = 'Q'; break;
+                        case ".-.": alphabets[i] = 'R'; break;
+                        case "...": alphabets[i] = 'S'; break;
+                        case "-": alphabets[i] = 'T'; break;
+                        case "..-": alphabets[i] = 'U'; break;
+                        case "...-": alphabets[i] = 'V'; break;
+                        case ".--": alphabets[i] = 'W'; break;
+                        case "-..-": alphabets[i] = 'X'; break;
+                        case "-.--": alphabets[i] = 'Y'; break;
+                        case "--..": alphabets[i] = 'Z'; break;
+                        case ".----": alphabets[i] = '1'; break;
+                        case "..---": alphabets[i] = '2'; break;
+                        case "...--": alphabets[i] = '3'; break;
+                        case "....-": alphabets[i] = '4'; break;
+                        case ".....": alphabets[i] = '5'; break;
+                        case "-....": alphabets[i] = '6'; break;
+                        case "--...": alphabets[i] = '7'; break;
+                        case "---..": alphabets[i] = '8'; break;
+                        case "----.": alphabets[i] = '9'; break;
+                        case "-----": alphabets[i] = '0'; break;
+                        case "*": alphabets[i] = ' '; break;
+                        default: alphabets[i] = '?'; break;
+
+
+                  }
+
+
+            }
+
+
+            string line = string.Join("", alphabets);
+
+            Console.WriteLine(line);
+
+
+
+
+      }
+
+
+
+}
+
+
+
+
+
+
+
+
+
