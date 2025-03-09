@@ -1,0 +1,45 @@
+
+//given a string of words, return the length of the shortest word(s).
+
+//Simple Task – Same Solution, But in Short & Long Ways! 😁
+
+
+
+public static int FindShort(string s)
+      {
+
+
+
+            string[] s_split = s.Split(" ");
+
+            int[] s_length = new int[s_split.Length];
+
+            if (s.Equals(string.Empty))
+            {
+                  return 0;
+            }
+
+            for (int i = 0; i < s_split.Length; i++)
+            {
+
+
+                  s_length[i] = s_split[i].Count();
+
+
+            }
+
+
+
+            return s_length.Min();
+
+
+      }
+
+      public static int FindShort_Pro(string s)
+      {
+
+            return s.Split(" ").Min(word => word.Length);
+
+
+
+      }
