@@ -1,0 +1,98 @@
+using System;
+
+using System.Linq;
+
+using System.Collections.Generic;
+
+
+
+namespace Practise;
+
+
+
+public class cd_1
+{
+
+
+
+      public static void Main()
+      {
+
+
+
+
+            Console.WriteLine(decode("success"));
+
+
+
+      }
+
+      public static string duplicateDecoder(string input)
+      {
+
+
+
+            char[] input_char = input.ToLower().ToCharArray();
+
+
+            List<char> outputList = new List<char>();
+
+            for (int i = 0; i < input_char.Length; i++)
+            {
+
+                  char[] store_counterObject = (from item in input_char where item == input_char[i] select item).ToArray();
+
+                  int count_Duplicated = store_counterObject.Length;
+
+                  if (count_Duplicated == 1)
+                  {
+                        outputList.Add('(');
+                  }
+                  else
+                  {
+                        outputList.Add(')');
+                  }
+
+
+
+
+
+            }
+
+            return string.Join("", outputList);
+
+
+
+
+
+
+
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
