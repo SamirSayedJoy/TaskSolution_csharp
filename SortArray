@@ -1,0 +1,9 @@
+static int[] SortOddNumbers(int[] array)
+    {
+        // Step 1: Extract and sort the odd numbers
+        int[] sortedOdds = array.Where(n => n % 2 != 0).OrderBy(n => n).ToArray();
+        
+        // Step 2: Replace only the odd numbers while keeping evens in place
+        int oddIndex = 0;
+        return array.Select(n => n % 2 != 0 ? sortedOdds[oddIndex++] : n).ToArray();
+    }
