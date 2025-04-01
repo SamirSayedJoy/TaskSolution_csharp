@@ -1,0 +1,65 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.Numerics;
+
+namespace Practise;
+
+public class cd_1
+{
+      public static int[] MoveZeroes(int[] arr)
+      {
+
+
+            int[] nonZero = arr.Where(n => n != 0).ToArray();
+
+            int[] zero = arr.Where(n => n == 0).ToArray();
+
+            return nonZero.Concat(zero).ToArray();
+
+      }
+
+
+      public static int[] MoveZeroes(int[] arr)
+      {
+
+            return arr.OrderBy(n => n != 0).ToArray();
+
+
+
+
+
+
+
+
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
