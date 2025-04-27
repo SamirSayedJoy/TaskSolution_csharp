@@ -1,0 +1,213 @@
+using System;
+
+using System.Linq;
+
+using System.Collections.Generic;
+using Practise;
+
+
+
+namespace Practise;
+
+
+
+public class DSA
+{
+
+
+      public static void Main()
+      {
+
+
+            custom_LinkedList i = new custom_LinkedList();
+
+
+            i.addLast(7);
+            i.addFirst(1);
+
+            i.addFirst(2);
+
+            i.addFirst(3);
+
+            i.showData();
+
+      }
+
+
+
+
+
+
+
+
+}
+
+
+
+public class Node
+{
+
+
+      public object data;
+
+      public Node nextNode;
+
+      public Node(object data)
+      {
+
+            this.data = data;
+            this.nextNode = null;
+
+
+      }
+
+
+
+}
+
+public class custom_LinkedList
+{
+
+      private Node head;
+
+      private Node tail;
+
+      public void addFirst(object data)
+      {
+
+
+            Node newObject = new Node(data);
+
+
+            if (head == null)
+            {
+
+                  head = newObject;
+
+                  tail = newObject;
+
+                  tail.nextNode = null;
+
+
+
+
+
+
+            }
+            else
+            {
+                  newObject.nextNode = head;
+
+                  head = newObject;
+
+
+
+
+            }
+
+
+
+
+
+
+
+
+      }
+
+
+      public void addLast(object data)
+      {
+
+            Node newObject = new Node(data);
+
+
+            if (head == null)
+            {
+                  head = newObject;
+
+                  tail = newObject;
+
+                  tail.nextNode = null;
+
+
+            }
+            else
+            {
+
+                  tail.nextNode = newObject;
+
+                  tail = newObject;
+
+
+
+            }
+
+
+
+
+      }
+
+      public void showData()
+      {
+
+            Node current = head;
+
+
+
+
+            if (current.nextNode != null) repeat(current);
+
+
+
+
+
+
+
+
+
+
+            void repeat(Node node)
+            {
+
+
+
+                  if (node.nextNode != null)
+                  {
+
+                        Console.WriteLine(node.data);
+
+                        repeat(node.nextNode);
+
+                  }
+                  else
+                  {
+                        Console.WriteLine(node.data);
+                  }
+
+
+
+
+
+
+            }
+
+
+
+
+
+
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
