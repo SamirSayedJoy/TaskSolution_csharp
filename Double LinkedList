@@ -1,0 +1,112 @@
+using System;
+
+namespace Practise
+{
+    public class DSA
+    {
+        public static void Main()
+        {
+            DoublyLinkedList list = new DoublyLinkedList();
+
+            list.AddLast(7);
+            list.AddFirst(1);
+            list.AddFirst(2);
+            list.AddFirst(3);
+            list.AddLast(8);
+
+            list.TotalData();
+
+            Console.WriteLine("\nForward:");
+            list.ShowData();
+
+            Console.WriteLine("\nReverse:");
+            list.ReverseShowData();
+        }
+    }
+
+    public class Node
+    {
+        public object Data;
+        public Node Next;
+        public Node Prev;
+
+        public Node(object data)
+        {
+            this.Data = data;
+            this.Next = null;
+            this.Prev = null;
+        }
+    }
+
+    public class DoublyLinkedList
+    {
+        private Node head;
+        private Node tail;
+        private int count;
+
+        public void AddFirst(object data)
+        {
+            Node newNode = new Node(data);
+
+            if (head == null)
+            {
+                head = tail = newNode;
+            }
+            else
+            {
+                newNode.Next = head;
+                head.Prev = newNode;
+                head = newNode;
+            }
+
+            count++;
+        }
+
+        public void AddLast(object data)
+        {
+            Node newNode = new Node(data);
+
+            if (tail == null)
+            {
+                head = tail = newNode;
+            }
+            else
+            {
+                tail.Next = newNode;
+                newNode.Prev = tail;
+                tail = newNode;
+            }
+
+            count++;
+        }
+
+        public void TotalData()
+        {
+            Console.WriteLine($"Total Nodes: {count}");
+        }
+
+        public void ShowData()
+        {
+            Node current = head;
+            int index = 0;
+
+            while (current != null)
+            {
+                Console.WriteLine($"Index {index++}: {current.Data}");
+                current = current.Next;
+            }
+        }
+
+        public void ReverseShowData()
+        {
+            Node current = tail;
+            int index = count - 1;
+
+            while (current != null)
+            {
+                Console.WriteLine($"Index {index--}: {current.Data}");
+                current = current.Prev;
+            }
+        }
+    }
+}
